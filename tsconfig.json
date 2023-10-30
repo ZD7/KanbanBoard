@@ -1,23 +1,32 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES6",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
-    "allowJs": true,
-    "skipLibCheck": true,
+    "sourceMap": true,
+    // "allowJs": true,
+    // "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+
+    // "noEmitOnError": true,
+    
+    // блок настроек строгости (strict: true)
     "strict": true,
+    "noImplicitAny": false, //требует всегда указывать тип (any),
+    "strictNullChecks": false, //требует делать проверки на null и undefined
+
+    // "noPropertyAccessFromIndexSignature": false,
+
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
+    "module": "ES6",
     "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
+
+    "noUnusedParameters": false,
     "jsx": "react-jsx"
   },
   "include": [

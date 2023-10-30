@@ -1,9 +1,19 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react'
 import App from './App';
+import { BrowserRouter } from 'react-router-dom';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+describe ("test board", function(){
+    it('check name task group', function () {
+        render(<BrowserRouter><App/></BrowserRouter>)
+
+        const nameGroupBacklog = screen.getByText("Backlog");
+        const nameGroupReady = screen.getByText("Ready");
+        const nameGroupInProgress = screen.getByText("InProgress");
+        const nameGroupFinished = screen.getByText("Finished");
+
+        expect(nameGroupBacklog).toBeInTheDocument();
+        expect(nameGroupReady).toBeInTheDocument();
+        expect(nameGroupInProgress).toBeInTheDocument();
+        expect(nameGroupFinished).toBeInTheDocument();
+    })
+})
