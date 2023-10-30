@@ -137,6 +137,10 @@ const Block = styled.div`
   @media screen and (max-width: 640px) {
     width: inherit;
   }
+
+  @media screen and (min-width: 1230px) {
+    flex: 1;
+  }
 `;
 
 const Title = styled.div`

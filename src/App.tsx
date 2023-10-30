@@ -59,7 +59,7 @@ const AppWrapper = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #0079bf;
-  max-width: 1235px;
+  /* max-width: 1235px; */
   margin: 0 auto;
   min-height: 700px;
 `;
@@ -68,6 +68,10 @@ const Container = styled.div`
   display: flex;
   gap: 24px;
   padding: 20px;
+
+  @media screen and (min-width: 1230px) {
+    justify-content: center;
+  }
 `;
 
 export default App;

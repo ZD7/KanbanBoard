@@ -3,15 +3,15 @@ import { styled } from "styled-components";
 import closeTask from "../images/close.svg";
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { IGroupTasks } from "../types/types"
-
+import { IGroupTasks } from "../types/types";
 
 const DesriptionTask: FC = () => {
-
   const { taskId } = useParams();
   const navigate = useNavigate();
 
-  const tasksFromStorage: IGroupTasks[] = JSON.parse(localStorage.getItem("tasks"));
+  const tasksFromStorage: IGroupTasks[] = JSON.parse(
+    localStorage.getItem("tasks")
+  );
 
   const currentTask = tasksFromStorage.find((item) =>
     item.issues.find((el) => el.id === Number(taskId))
@@ -44,22 +44,22 @@ const DesriptionTask: FC = () => {
   return (
     <Container>
       <Block>
-        <Title>{editTask.name}</Title>
+        <Header>
+          <Title>{editTask.name}</Title>
+          <img src={closeTask} alt="closeIcon" onClick={() => navigate("/")} />
+        </Header>
         <InfoTasks
           value={editDescript}
           onChange={descriptionChange}
           title="редактировать описание задачи"
-        ></InfoTasks>
+        />
         <Save onClick={saveChangeDescript} disabled={isDisabled}>
           Сохранить
         </Save>
       </Block>
-      <div className="closeButton">
-        <img src={closeTask} alt="closeIcon" onClick={() => navigate("/")} />
-      </div>
     </Container>
   );
-}
+};
 
 const Container = styled.div`
   display: flex;
@@ -73,28 +73,26 @@ const Container = styled.div`
   box-sizing: border-box;
 
   @media screen and (max-width: 400px) {
-    padding: 0px;
-
-    .closeButton {
-      position: absolute;
-      right: 20px;
-      top: 75px;
-      height: 24px;
-    }
+    padding: 5px;
   }
-`
+`;
 
 const Title = styled.div`
   font-size: 24px;
+  word-break: break-all;
+`;
+
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
   margin-bottom: 35px;
-
-
-`
+`;
 
 const Block = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 621px;
+  width: 100%;
 
   background-color: #ffffff;
   box-sizing: border-box;
