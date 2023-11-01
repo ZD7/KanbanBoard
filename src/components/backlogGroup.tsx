@@ -6,6 +6,7 @@ import { useState, useEffect, useRef, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Context } from "../context/context";
 import { IGroupTasks, ITask } from "../types/types"
+import { TaskStatus } from "../types/types"
 
 const BacklogGroup: FC = () => {
   console.log("backlog");
@@ -43,7 +44,7 @@ const BacklogGroup: FC = () => {
     };
 
     tasksFromStorage
-      .find((task) => task.title === "backlog")
+      .find((task) => task.title === TaskStatus.BACKLOG)
       .issues.push(dataTask);
 
     setTaskFromStorage(tasksFromStorage);
@@ -58,7 +59,7 @@ const BacklogGroup: FC = () => {
 
   const [changeButton, setChangeButton] = useState(false);
 
-  const onChangeTaskName = (e) => {
+  const onChangeTaskName = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.currentTarget.value === "") {
       setChangeButton(false);
     } else {
@@ -72,7 +73,7 @@ const BacklogGroup: FC = () => {
 
       <Container>
         {tasksFromStorage
-          .find((task) => task.title === "backlog")
+          .find((task) => task.title === TaskStatus.BACKLOG)
           .issues?.map((el) => (
             <Task
               key={el.id}

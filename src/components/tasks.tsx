@@ -2,15 +2,16 @@ import { FC } from "react";
 import { styled } from "styled-components";
 import Backlog from "./backlogGroup"
 import Ready from "./otherGroup";
+import { TaskStatus } from "../types/types" 
 
 
 const Tasks: FC = () => {
   return (
     <Container>
       <Backlog/> 
-      <Ready nameGroup={"ready"}/>  
-      <Ready nameGroup={"inProgress"}/>  
-      <Ready nameGroup={"finished"}/>
+      <Ready nameGroup={TaskStatus.READY}/>  
+      <Ready nameGroup={TaskStatus.IN_PROGRESS}/>  
+      <Ready nameGroup={TaskStatus.FINISHED}/>
     </Container>
   );
 };

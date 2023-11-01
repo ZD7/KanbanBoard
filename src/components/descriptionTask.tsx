@@ -46,7 +46,7 @@ const DesriptionTask: FC = () => {
       <Block>
         <Header>
           <Title>{editTask.name}</Title>
-          <img src={closeTask} alt="closeIcon" onClick={() => navigate("/")} />
+          <img src={closeTask} alt="closeIcon" onClick={() => navigate("/")} style={{cursor: "pointer"}}/>
         </Header>
         <InfoTasks
           value={editDescript}

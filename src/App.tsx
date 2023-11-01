@@ -6,22 +6,23 @@ import Footer from "./components/footer";
 import Tasks from "./components/tasks";
 import DesriptionTask from "./components/descriptionTask";
 import { Context } from "./context/context";
+import { TaskStatus } from "./types/types" 
 
 const emptyTasks = [
   {
-    title: "backlog",
+    title: TaskStatus.BACKLOG,
     issues: [],
   },
   {
-    title: "ready",
+    title: TaskStatus.READY,
     issues: [],
   },
   {
-    title: "inProgress",
+    title: TaskStatus.IN_PROGRESS,
     issues: [],
   },
   {
-    title: "finished",
+    title: TaskStatus.FINISHED,
     issues: [],
   },
 ];
